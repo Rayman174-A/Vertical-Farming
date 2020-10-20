@@ -1,0 +1,896 @@
+<html>
+<title>Vertical Farming</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<style>
+    #myBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      background-color: darkgrey;
+      color: black;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 4px;
+    }
+
+    .snip1217 {
+      font-family: 'Raleway', Arial, sans-serif;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 10px;
+      background-color: black;
+    }
+
+    .snip1217 * {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-transition: all 0.35s ease;
+      transition: all 0.35s ease;
+    }
+
+    .snip1217 li {
+      display: inline-block;
+      list-style: outside none none;
+      margin: 0.5em 1.5em;
+      padding: 0;
+
+    }
+
+    .snip1217 a {
+      padding: 0.3em 0;
+      color: rgba(255, 255, 255, 0.5);
+      position: relative;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .snip1217 a:before,
+    .snip1217 a:after {
+      height: 3px;
+      position: absolute;
+      content: '';
+      -webkit-transition: all 0.35s ease;
+      transition: all 0.35s ease;
+      background-color: green;
+      width: 0;
+    }
+
+    .snip1217 a:before {
+      top: 0;
+      left: 0;
+    }
+
+    .snip1217 a:after {
+      bottom: 0;
+      right: 0;
+    }
+
+    .snip1217 a:hover,
+    .snip1217 .current a {
+      color: #ffffff;
+    }
+
+    .snip1217 a:hover:before,
+    .snip1217 .current a:before,
+    .snip1217 a:hover:after,
+    .snip1217 .current a:after {
+      width: 100%;
+    }
+
+    figure.snip1311 {
+      font-family: 'Raleway', Arial, sans-serif;
+      position: relative;
+      float: left;
+      overflow: hidden;
+      /* margin: 10px 1%; */
+      /* min-width: 230px; */
+      /* max-width: max-content;
+      max-height: max-content; */
+      /* width: 100%;  */
+      color: #ffffff;
+      text-align: left;
+      background-color: #07090c;
+      font-size: 16px;
+      -webkit-perspective: 50em;
+      perspective: 50em;
+    }
+
+    figure.snip1311 * {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-transition: all 0.6s ease;
+      transition: all 0.6s ease;
+    }
+
+    figure.snip1311 img {
+      -webkit-transition-delay: 0.2s;
+      transition-delay: 0.2s;
+      backface-visibility: hidden;
+      /* margin-left: 30px; */
+    }
+
+    figure.snip1311 figcaption {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      -webkit-transform: rotateX(90deg) translate(0%, -50%);
+      transform: rotateX(90deg) translate(0%, -50%);
+      -webkit-transform-origin: 0% 0%;
+      -ms-transform-origin: 0% 0%;
+      transform-origin: 0% 0%;
+      z-index: 1;
+      opacity: 0;
+      padding: 0 30px;
+    }
+
+    figure.snip1311 h3,
+    figure.snip1311 p {
+      line-height: 1.5em;
+    }
+
+    figure.snip1311 h3 {
+      margin: 0;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    figure.snip1311 p {
+      font-size: 70%;
+      font-weight: 500;
+      margin: 0 0 15px;
+    }
+
+    figure.snip1311 .read-more {
+      border: 2px solid #ffffff;
+      padding: 0.5em 1em;
+      font-size: 0.8em;
+      text-decoration: none;
+      color: #ffffff;
+      display: inline-block;
+    }
+
+    figure.snip1311 .read-more:hover {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    figure.snip1311:hover img,
+    figure.snip1311.hover img {
+      -webkit-transform: rotateX(-180deg);
+      transform: rotateX(-180deg);
+      opacity: 0;
+      -webkit-transition-delay: 0;
+      transition-delay: 0;
+    }
+
+    figure.snip1311:hover figcaption,
+    figure.snip1311.hover figcaption {
+      -webkit-transform: rotateX(0deg) translate(0, -50%);
+      transform: rotateX(0deg) translate(0, -50%);
+      opacity: 1;
+      -webkit-transition-delay: 0.35s;
+      transition-delay: 0.35s;
+    }
+
+    .ct-u-paddingTop10 {
+      padding-top: 10px !important;
+    }
+
+    .ct-footer {
+      background-color: #111;
+      padding-top: 70px;
+      margin-top: 20px;
+      position: relative;
+    }
+
+    .ct-footer-pre {
+      width: 100%;
+      padding-bottom: 55px;
+      border-bottom: 1px solid #555;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .ct-footer-pre span {
+      font-family: 'Open Sans Condensed', sans-serif;
+      color: #ebebeb;
+      font-size: 30px;
+    }
+
+    .ct-footer-pre .form-group {
+      position: relative;
+      margin: 0;
+    }
+
+    .ct-footer-pre .form-group:before,
+    .ct-footer-pre .form-group:after {
+      content: '';
+      display: table;
+    }
+
+    .ct-footer-pre .form-group:after {
+      clear: both;
+    }
+
+    .ct-footer-pre .form-group input {
+      border: 1px solid #00bff3;
+      background-color: #333;
+      color: #fff;
+      height: 50px;
+      padding: 0 30px;
+      margin: 0 5px;
+      border-radius: 0 !important;
+    }
+
+    .ct-footer-pre .form-group button {
+      height: 50px;
+      position: relative;
+      width: 80px;
+      padding: 0
+    }
+
+    .ct-footer-list {
+      padding: 50px 0;
+      list-style: none;
+      padding-left: 0;
+      display: table;
+      width: 100%;
+      border-bottom: 1px solid #555;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .ct-footer-list>li .ct-footer-list-header {
+      font-family: 'Open Sans Condensed', sans-serif;
+      color: #00bff3;
+      font-size: 30px;
+    }
+
+    .ct-footer-list>li ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .ct-footer-list>li ul li a {
+      color: #fff;
+    }
+
+    .ct-footer-list>li ul li a:hover,
+    .ct-footer-post a:hover {
+      text-decoration: underline;
+    }
+
+    .ct-footer-post {
+      background: #000;
+      padding: 30px 0;
+    }
+
+    .ct-footer-post .inner-left,
+    .ct-footer-post .inner-right {
+      padding: 20px 0;
+    }
+
+    .ct-footer-post ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0 -20px;
+    }
+
+    .ct-footer-post ul li {
+      display: inline-block;
+      margin: 0 20px;
+    }
+
+    .ct-footer-post a {
+      color: #fff;
+    }
+
+    .ct-footer-post p {
+      color: #fff;
+    }
+
+    .ct-footer-meta {
+      padding-top: 30px;
+    }
+
+    .ct-footer-meta .ct-socials {
+      padding: 20px 0;
+    }
+
+    .ct-footer-meta .ct-socials li {
+      padding: 0 3px;
+    }
+
+    .ct-footer--with-button {
+      padding-top: 150px;
+    }
+
+    address {
+      color: #fff;
+      display: inline-block;
+    }
+
+    address span {
+      font-weight: 600;
+    }
+
+    address a {
+      color: #fff;
+    }
+
+    address a:hover {
+      text-decoration: underline;
+    }
+
+    .btn {
+      font-family: 'Open Sans Condensed', sans-serif;
+      border-radius: 0;
+      border: none;
+      text-transform: uppercase;
+      color: #111;
+      font-size: 26px;
+      padding: 12px 30px;
+    }
+
+    .btn.btn-motive {
+      background-color: #00bff3;
+      -webkit-transition: all .25s ease;
+      transition: all .25s ease;
+    }
+
+    .btn.btn-motive:hover,
+    .btn.btn-motive:hover:active {
+      background-color: #00bff3;
+    }
+
+    .btn.btn-violet {
+      color: #fff;
+      background-color: #4f4f99;
+      -webkit-transition: all .25s ease;
+      transition: all .25s ease;
+    }
+
+    .btn.btn-violet:hover {
+      background-color: #37376b;
+    }
+
+    .btn.btn-violet:hover:active {
+      background-color: #2f2f5b
+    }
+
+    .btn.btn-green {
+      color: #fff;
+      background-color: #43670f;
+      -webkit-transition: all .25s ease;
+      transition: all .25s ease;
+    }
+
+    .btn.btn-green:hover {
+      background-color: #36520c;
+    }
+
+    .btn.btn-green:hover:active {
+      background-color: #314a0b;
+    }
+
+    .btn.btn-red {
+      color: #fff;
+      background-color: #da2229;
+      -webkit-transition: all .25s ease;
+      transition: all .25s ease;
+    }
+
+    .btn.btn-red:hover {
+      background-color: #ae1b21;
+    }
+
+    .btn.btn-red:hover:active {
+      background-color: #9d181e
+    }
+
+    .btn.btn-white {
+      background-color: #fff;
+      -webkit-transition: all .25s ease;
+      transition: all .25s ease;
+    }
+
+    .btn.btn-white:hover {
+      background-color: #d9d9d9;
+    }
+
+    .btn.btn-white:hover:active {
+      background-color: #c9c9c9
+    }
+
+    .btn.btn-large {
+      padding: 20px 50px;
+      font-size: 30px;
+      white-space: normal;
+    }
+
+    .ct-mediaSection {
+      background-attachment: fixed;
+    }
+
+    .ct-section_header--type1 {
+      font-family: 'Open Sans Condensed', sans-serif;
+      color: #000;
+      font-size: 115px;
+      text-transform: uppercase;
+    }
+
+    .ct-section_header--type2 small {
+      font-family: 'coquette', fantasy;
+      font-size: 58px;
+      line-height: .7;
+      display: block;
+      font-weight: 700;
+      position: relative;
+      left: -12px;
+    }
+
+    .ct-section_header--type2 span {
+      font-family: 'Bebas Neue';
+      font-size: 115px;
+      line-height: .8;
+    }
+
+    .ct-section_header--type2 img {
+      display: inline-block;
+      float: left;
+      position: relative;
+      top: 15px;
+      padding-right: 3px;
+    }
+
+    .ct-section_header--type3 {
+      text-align: center;
+    }
+
+    .ct-section_header--type3 small {
+      font-family: 'coquette', fantasy;
+      font-size: 50px;
+      padding: 15px 0;
+      font-weight: 700;
+      color: #fff;
+      background-image: url("/core/fileparse.php/16/urlt/../images/ribbon.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block
+    }
+
+    .ct-section_header--type3 span {
+      font-family: 'Bebas Neue';
+      font-size: 150px;
+      font-weight: 400;
+      text-transform: uppercase;
+      line-height: .85
+    }
+
+    .ct-section_header--type4 {
+      text-align: center;
+    }
+
+    .ct-section_header--type4:before,
+    .ct-section_header--type4:after {
+      content: '';
+      display: table
+    }
+
+    .ct-section_header--type4:after {
+      clear: both
+    }
+
+    .ct-section_header--type4 small {
+      font-family: 'coquette', fantasy;
+      font-size: 50px;
+      color: inherit;
+      font-weight: 700;
+      display: block
+    }
+
+    .ct-section_header--type4 span {
+      font-family: 'nimbus-sans-condensed', sans-serif;
+      font-weight: 400;
+      font-weight: bold;
+      font-size: 150px;
+      text-transform: uppercase;
+      display: block;
+      line-height: .7
+    }
+
+    .ct-section_header+p {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      text-align: center;
+    }
+
+    .ct-section_header--type4+p {
+      font-family: 'nimbus-sans-condensed', sans-serif;
+      font-weight: 400;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    /* Media Queries */
+
+    @media (min-width:1200px) {
+      .ct-footer-pre {
+        display: table;
+      }
+
+      .ct-footer-pre>.inner {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      .ct-footer-list>li {
+        width: 20%;
+        display: table-cell;
+        vertical-align: top;
+      }
+
+      .ct-footer-list>li:last-child {
+        width: 7%;
+      }
+    }
+
+    @media (max-width:1199px) {
+      .ct-footer-pre .form-group {
+        padding-top: 15px
+      }
+    }
+
+    @media (max-width: 1199px) {
+      .ct-footer-list>li {
+        display: inline-block;
+        float: left;
+      }
+    }
+
+    @media (min-width:992px) {
+      .ct-footer-post .inner-left {
+        float: left;
+      }
+
+      .ct-footer-post .inner-right {
+        float: right;
+      }
+    }
+
+    @media (max-width:991px) {
+      .ct-footer-post {
+        text-align: center;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+      .ct-footer-list>li {
+        width: 33.3333%;
+      }
+    }
+
+    @media (min-width:768px) {
+      .ct-footer-post p {
+        display: inline-block;
+      }
+
+      .ct-footer-post p+p {
+        padding-left: 50px;
+      }
+    }
+
+    @media (max-width:767px) {
+      address {
+        padding-top: 30px;
+      }
+    }
+
+    @media (min-width: 480px) and (max-width:767px) {
+      .ct-footer-list>li {
+        width: 50%;
+      }
+    }
+
+    @media (min-width:480px) {
+      .ct-footer-pre .form-group button {
+        top: -1px;
+      }
+
+      .ct-footer-pre .form-group input {
+        width: 331px;
+      }
+    }
+
+    @media (max-width:479px) {
+      .ct-footer-pre .form-group input {
+        float: left;
+        width: 70%;
+        margin: 0;
+      }
+
+      .ct-footer-pre .form-group button {
+        float: left;
+        width: 30%;
+      }
+
+      .ct-footer-list>li {
+        width: 100%;
+        text-align: center;
+      }
+
+      .ct-footer-list {
+        padding: 20px 0;
+      }
+
+      .btn.btn-large {
+        padding: 20px 10px;
+        line-height: .9;
+        font-size: 26px;
+        letter-spacing: -.2px;
+      }
+
+      .ct-section_header--type1 {
+        font-size: 60px;
+        line-height: .8;
+      }
+
+      .ct-section_header+p {
+        font-size: 22px;
+      }
+
+      .ct-section_header--type3 small {
+        font-size: 25px;
+      }
+
+      .ct-section_header--type4 small {
+        font-size: 40px;
+      }
+
+      .ct-section_header--type3 span {
+        font-size: 90px;
+      }
+
+      .ct-section_header--type4 span {
+        font-size: 80px;
+      }
+
+      .ct-section_header--type4+p {
+        font-size: 28px;
+      }
+    }
+
+    .fa {
+      padding: 20px;
+      font-size: 30px;
+      width: 60px;
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+    }
+
+    .fa:hover {
+      opacity: 0.7;
+    }
+
+    .fa-facebook {
+      background: #3B5998;
+      color: white;
+    }
+
+    .fa-twitter {
+      background: #55ACEE;
+      color: white;
+    }
+
+    .fa-google {
+      background: #dd4b39;
+      color: white;
+    }
+
+    .fa-linkedin {
+      background: #007bb5;
+      color: white;
+    }
+
+    .fa-yahoo {
+      background: #430297;
+      color: white;
+    }
+  </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+  <ul class="snip1217">
+    <img
+      src="https://newfoodeconomy.org/wp-content/uploads/2017/10/AeroFarms-Vertical-Farm-212-Rome-Interior-1-1024x768.png"
+      class="img-circle" width="10%" height="10%">
+    <li><a href="http://www.ecofifarms.in.s3-website.ap-south-1.amazonaws.com/index.html">Home</a></li>
+    <li><a href="http://www.ecofifarms.in.s3-website.ap-south-1.amazonaws.com/about.html">About Us</a></li>
+    <li class="current"><a
+        href="http://www.ecofifarms.in.s3-website.ap-south-1.amazonaws.com/vertical%20blogs.html#">Blog</a></li>
+    <li><a href="http://www.ecofifarms.in.s3-website.ap-south-1.amazonaws.com/vertical%20products.html">Products</a>
+    </li>
+    <li><a href="http://www.ecofifarms.in.s3-website.ap-south-1.amazonaws.com/vertical%20services.html">Services</a>
+    </li>
+    <li><a href="http://www.ecofifarms.in.s3-website.ap-south-1.amazonaws.com/vertical%20contact.html">Contact</a></li>
+  </ul>
+  <script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+    function plusDivs(n) {
+      showDivs(slideIndex += n);
+    }
+    function showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("slideshow");
+      if (n > x.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = x.length }
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      x[slideIndex - 1].style.display = "block";
+    }
+  </script>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <figure class="snip1311 thumbnail"><img src="https://plantswithapurpose.net/wp-content/uploads/2017/06/RamaTulsi.jpg" class="img-responsive">
+          <figcaption>
+            <h3>Tulsi:-India's herbal Deity</h3>
+            <p>Tulsi, a plant local to Southeast Asia and worshipped all across India as a deity.</p><a
+              href="tulsi.html" class="read-more">Read
+              More</a>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <figure class="snip1311 thumbnail "><img src="https://thumbs-prod.si-cdn.com/z43Mzc-w0xgZwSPKzH_knWf5ve0=/fit-in/1600x0/https://public-media.si-cdn.com/filer/92/27/922747be-5532-4d17-a131-1250d1944385/ap_20008263499663.gif" style="width: 364px;" class="img-responsive">
+          <figcaption>
+            <h3 style="color: white">Australian Wildfire:-Inferno on God's Green Earth</h3>
+            <p style="color: white">The wildfire is a usual phenomenon for the Australian ecosystem, which has seemingly
+              evolved itself to adapt accordingly.</p><a
+              href="Australian wildfire.html"
+              class="read-more">Read More</a>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <figure class="snip1311 thumbnail"><img src="https://static.sciencelearn.org.nz/images/images/000/000/992/embed/A-handful-of-soil20160315-10922-13n7gop.jpg?1522297941" class="img-responsive">
+          <figcaption>
+            <h3>Soil:- The fortune beneath our feet</h3>
+            <p>arming can aptly be regarded as the cornerstone of 
+  civilizations, post the dawn of agricultural evolution we could have equated the sentient species of this planet to mere hunting and gathering
+  beasts.....</p><a
+              href="soil.html" class="read-more">Read
+              More</a>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <figure class="snip1311 thumbnail"><img src="https://api.time.com/wp-content/uploads/2019/11/best-inventions-2019-028-aerofarms.jpg"
+            class="img-responsive">
+          <figcaption>
+            <h3 style="color: white">Aerofarms</h3>
+            <p style="color: white">When it comes to indoor farming, AeroFarms are the commercial leaders in this field
+              with their innovation of using the aeroponic system of farming that ensures
+              predictable results of your harvest</p><a
+              href="aerofarms.html" class="read-more">Read
+              More</a>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <figure class="snip1311 thumbnail"><img src="https://1gt3sd9flvb3kwgha3wmyhbu-wpengine.netdna-ssl.com/wp-content/uploads/2018/11/Bowery-Farming-01-scaled.jpg" class="img-responsive">
+          <figcaption>
+            <h3 style="color: white">Bowery</h3>
+            <p style="color: white">The technology will automatically generate ideal conditions for the plants while
+              collecting the data as they grow. </p><a
+              href="bowery.html" class="read-more">Read
+              More</a>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <figure class="snip1311 thumbnail"><img src="https://a0.muscache.com/im/pictures/2a8ad17e-aea4-4dfc-a954-2e10394ffb3f.jpg?aki_policy=xx_large" style="width: inherit;"
+            class="img-responsive">
+          <figcaption>
+            <h3 style="color: white">Sky Farms</h3>
+            <p style="color: white">The idea is to build a hyperboloid tower that makes use of different farming
+              techniques including aquaponics and traditional soil-based planting methods to produce crops within
+              high-density
+              urban areas or at places where land availability is less.</p><a
+              href="skyfarms.html" class="read-more">Read
+              More</a>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+
+  </div>
+  <script>
+
+    $(".hover").mouseleave(
+      function () {
+        $(this).removeClass("hover");
+      }
+    );
+  </script>
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+  <script>
+
+    window.onscroll = function () { scrollFunction() };
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+      } else {
+        document.getElementById("myBtn").style.display = "none";
+      }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+  <br>
+  <div class="ct-footer-post">
+    <div class="container">
+      <div class="inner-left">
+
+        <ul>
+          <li>
+            <a href="#">
+              <h3>FAQ</h3>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <h3>News</h3>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <h3>Contact Us</h3>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="inner-right">
+        <a href="#"
+          class="fa fa-facebook"></a>
+        <a href="#"
+          class="fa fa-twitter"></a>
+        <a href="#"
+          class="fa fa-google"></a>
+        <a href="#"
+          class="fa fa-linkedin"></a>
+        <a href="#"
+          class="fa fa-yahoo"></a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
